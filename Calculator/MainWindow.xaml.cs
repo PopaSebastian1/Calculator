@@ -131,8 +131,10 @@ namespace Calculator
                 string selectedText = History.SelectedItem.ToString();
 
                 // Puneți textul în TextBox
-                Expression.Text = selectedText;
-                Display.Text = calculateExpression(selectedText).ToString();
+               string[] parts=selectedText.Split(new[] { '=' });
+                Expression.Text = parts[0]+'=';
+                Display.Text = calculateExpression(parts[0]).ToString();
+
                 firstNumber = double.Parse(Display.Text);
             }
         }
